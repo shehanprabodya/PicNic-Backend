@@ -25,7 +25,8 @@ public class Destination {
 
     @Column(nullable = false)
     private String description;
-    
+
+
 
 
 

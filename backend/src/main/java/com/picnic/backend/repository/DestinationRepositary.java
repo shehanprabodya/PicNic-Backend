@@ -1,4 +1,7 @@
 package com.picnic.backend.repository;
 
-public interface DestinationRepositary {
+import com.picnic.backend.entity.Destination;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DestinationRepositary  {
 }
