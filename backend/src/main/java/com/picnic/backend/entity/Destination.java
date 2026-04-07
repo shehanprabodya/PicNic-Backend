@@ -30,6 +30,12 @@ public class Destination {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private String country;
+    
+    @Column(nullable = false)
+    private String location;
+
 
 
 
