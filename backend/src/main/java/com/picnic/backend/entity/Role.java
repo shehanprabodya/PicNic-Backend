@@ -11,8 +11,6 @@ import java.util.Set;
 @Entity
 @Table (name = "role",uniqueConstraints = @UniqueConstraint(columnNames = "roleType"))
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Role {

@@ -7,10 +7,8 @@ import lombok.*;
 import java.math.BigInteger;
 
 @Entity
-@Data
 @Table (name = "destination")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Destination {

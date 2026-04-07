@@ -6,8 +6,6 @@ import lombok.*;
 @Entity
 @Table(name = "booking")
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Booking {
