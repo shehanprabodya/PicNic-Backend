@@ -13,9 +13,11 @@ import lombok.*;
 public class Booking {
 
     @Id
-    @Column (name="booking_id")
+    @Column (name="booking_Id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long bookingId;
+
+
 
 
 }

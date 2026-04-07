@@ -16,7 +16,7 @@ import java.math.BigInteger;
 public class Destination {
 
     @Id
-    @Column (name="destination_id")
+    @Column (name="destination_Id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long destinationId;
 
@@ -32,7 +32,7 @@ public class Destination {
 
     @Column(nullable = false)
     private String country;
-    
+
     @Column(nullable = false)
     private String location;
 
