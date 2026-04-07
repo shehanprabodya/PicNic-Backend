@@ -17,5 +17,5 @@ public class Booking {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long bookingId;
 
-    
+
 }
