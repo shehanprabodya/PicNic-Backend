@@ -23,6 +23,10 @@ public class Destination {
     @Column(nullable = false)
     private String title;
 
+    /**
+     * lob is used for large text
+     */
+    @Lob
     @Column(nullable = false)
     private String description;
 
