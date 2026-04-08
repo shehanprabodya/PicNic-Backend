@@ -15,6 +15,11 @@ public class Booking {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long bookingId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_Id", nullable = false, foreignKey = @ForeignKey(name = "fk_booking_user"))
+    private User user;
+
+    
 
 
 
