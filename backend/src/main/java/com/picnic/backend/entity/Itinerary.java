@@ -8,8 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table (name="itinerary")
@@ -23,12 +25,12 @@ public class Itinerary {
     @Column(name = "itinerary_id")
     private Long itineraryId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "package_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_itinerary_package"))
     private Travelpackage travelPackage;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "destination_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_itinerary_destination"))
     private Destination destination;
@@ -42,8 +44,10 @@ public class Itinerary {
     @Column(name = "description", length = 500)
     private String description;
 
-    @Column(name = "activities", columnDefinition = "TEXT")
-    private String activities;
+    @ElementCollection
+    @CollectionTable(name = "itinerary_activities", joinColumns = @JoinColumn(name = "itinerary_id"))
+    @Column(name = "activity")
+    private List<String> activities;
 
     @Size(max = 100, message = "Meals field cannot exceed 100 characters")
     @Column(name = "meals", length = 100)
@@ -56,5 +60,9 @@ public class Itinerary {
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
 }
