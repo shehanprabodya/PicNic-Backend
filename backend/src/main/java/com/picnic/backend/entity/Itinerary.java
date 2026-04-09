@@ -14,7 +14,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table (name="itinerary")
+@Table (name="itinerary",uniqueConstraints = @UniqueConstraint(columnNames = {"package_id", "day_number"}),
+        indexes = {
+                @Index(name = "idx_package_id", columnList = "package_id"),
+                @Index(name = "idx_destination_id", columnList = "destination_id")
+        }
+)
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name="business")
@@ -57,6 +58,12 @@ public class Business {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    /**
+     * One Business can offer Many Travel Packages
+     * CascadeType.ALL: When business is deleted, all packages are deleted
+     */
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Travelpackage> travelPackages;
 
 
 }
