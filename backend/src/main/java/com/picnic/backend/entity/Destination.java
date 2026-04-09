@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigInteger;
+import java.util.Set;
 
 @Entity
 @Table (name = "destination")
@@ -35,7 +36,12 @@ public class Destination {
     private String location;
 
 
-
+    /**
+     * One Destination can have Many Itineraries
+     * CascadeType.REFRESH: Don't delete destination if itineraries exist
+     */
+    @OneToMany(mappedBy = "destination", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    private Set<Itinerary> itineraries;
 
 
 
