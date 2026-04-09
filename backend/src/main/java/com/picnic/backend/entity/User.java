@@ -11,10 +11,14 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "user")
+@Table (name = "user",indexes = {
+        @Index(name = "idx_email", columnList = "email"),
+        @Index(name = "idx_role_id", columnList = "role_id")},
+        uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 
 public class User {
 
