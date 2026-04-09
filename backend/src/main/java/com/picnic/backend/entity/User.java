@@ -32,6 +32,10 @@ public class User {
     @Column (unique = true,nullable = false)
     private String userName;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", nullable = false, foreignKey = @ForeignKey(name = "fk_user_role"))
+    private Role role;
+
     @NotBlank (message = "Email is mandatory")
     @Email (message = "email should be valid")
     @Column (unique = true,nullable = false)
