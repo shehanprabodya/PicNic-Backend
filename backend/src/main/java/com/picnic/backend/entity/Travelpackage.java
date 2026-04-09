@@ -3,6 +3,7 @@ package com.picnic.backend.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -19,8 +20,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-
+@Builder
 public class Travelpackage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
