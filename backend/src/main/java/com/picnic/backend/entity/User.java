@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table (name = "user",indexes = {
@@ -52,6 +53,39 @@ public class User {
 
     @UpdateTimestamp
     private  LocalDateTime updateAt;
+
+    /**
+     * One User can have Many Bookings
+     * CascadeType.REFRESH: Only refresh the user when needed
+     * FetchType.LAZY: Don't load bookings unless explicitly requested
+     */
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    private Set<Booking> bookings;
+
+    /**
+     * One User can write Many Reviews
+     */
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Review> reviews;
+
+    /**
+     * One User can have Many Wishlist items
+     */
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Wishlist> wishlists;
+
+    /**
+     * One User can receive Many Notifications
+     */
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Notifications> notifications;
+
+    /**
+     * One User can own One Business (optional)
+     * OneToOne relationship
+     */
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Business business;
 
 
 }
