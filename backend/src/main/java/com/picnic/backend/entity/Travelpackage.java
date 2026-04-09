@@ -70,35 +70,35 @@ public class Travelpackage {
      * One Package can have Many Bookings
      * CascadeType.REFRESH: Don't delete package if bookings exist
      */
-    @OneToMany(mappedBy = "travel_package", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelPackage", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Set<Booking> bookings;
 
     /**
      * One Package can have Many Reviews
      * CascadeType.ALL: Delete reviews when package is deleted
      */
-    @OneToMany(mappedBy = "travel_package", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelPackage", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Review> reviews;
 
     /**
      * One Package can have Many Itineraries (day-by-day breakdown)
      * CascadeType.ALL: Delete itineraries when package is deleted
      */
-    @OneToMany(mappedBy = "travel_package", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelPackage", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Itinerary> itineraries;
 
     /**
      * One Package can have Many Images
      * CascadeType.ALL: Delete images when package is deleted
      */
-    @OneToMany(mappedBy = "travel_package", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelPackage", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<TravelPackageImage> images;
 
     /**
      * One Package can have Many Availability Records
      * CascadeType.ALL: Delete availability when package is deleted
      */
-    @OneToMany(mappedBy = "travel_package", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "travelPackage", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Package_Availabillity> availabilities;
 
 
