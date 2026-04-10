@@ -4,7 +4,7 @@ import com.picnic.backend.entity.User;
 import lombok.Data;
 
 @Data
-public class bussinessReqestDto {
+public class BussinessReqestDto {
 
     private Long businessId;
     private User user;
